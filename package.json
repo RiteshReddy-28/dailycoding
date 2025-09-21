@@ -1,37 +1,32 @@
 {
-  "name": "daily-coding-platform",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "Full-stack Daily Coding Platform for CHRIST University",
-  "main": "backend/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node backend/index.js",
-    "dev": "cd backend && npm run dev",
-    "seed": "cd backend && npm run seed",
-    "test": "cd backend && npm run test",
-    "install-backend": "cd backend && npm install",
-    "build": "echo 'No build step required'",
+    "start": "node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "seed": "node seed.js",
+    "test": "node test.js",
+    "build": "echo 'No build step required for this project'",
     "heroku-postbuild": "npm run seed"
   },
-  "keywords": [
-    "coding",
-    "education",
-    "platform",
-    "nodejs",
-    "mongodb",
-    "express"
-  ],
-  "author": "Daily Coding Team",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
+  "description": "",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "cross-env": "^10.0.0",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.1",
+    "morgan": "^1.10.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/daily-coding-platform.git"
-  },
-  "bugs": {
-    "url": "https://github.com/yourusername/daily-coding-platform/issues"
-  },
-  "homepage": "https://github.com/yourusername/daily-coding-platform#readme"
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
