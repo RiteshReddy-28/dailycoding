@@ -17,15 +17,14 @@ exports.loginUser = async (req, res) => {
       });
     }
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select('+password');
     if (!user) {
       return res.status(401).json({
         success: false,
         message: "Invalid credentials",
       });
     }
-
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await user.matchPassword(password);
     if (!isMatch) {
       return res.status(401).json({
         success: false,
@@ -46,14 +45,12 @@ exports.loginUser = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "✅ Login successful",
-      data: {
-        token,
-        user: {
-          id: user._id,
-          name: user.name,
-          role: user.role,
-          email: user.email,
-        },
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        role: user.role,
+        email: user.email,
       },
     });
   } catch (err) {
@@ -105,13 +102,10 @@ exports.adminCreateUser = async (req, res) => {
       });
     }
 
-    const saltRounds = parseInt(process.env.BCRYPT_SALT_ROUNDS) || 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-
     const newUser = new User({
       name,
       email,
-      password: hashedPassword,
+      password,
       role: role.toLowerCase(),
     });
 
@@ -160,14 +154,11 @@ exports.registerUser = async (req, res) => {
       });
     }
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create user
+    // Create user (mongoose pre-save hook will hash password)
     const user = new User({
       name,
       email,
-      password: hashedPassword,
+      password,
       role,
     });
 
@@ -193,9 +184,15 @@ exports.registerUser = async (req, res) => {
     });
   } catch (err) {
     console.error("Registration Error:", err.stack || err.message);
+    try { process.stdout.write('\n--REG-ERR-STACK--\n' + (err.stack || err.message) + '\n--END-REG-ERR--\n'); } catch(e){}
+    try {
+      const fs = require('fs');
+      fs.appendFileSync(require('path').join(__dirname, '..', 'reg-errors.log'), (new Date()).toISOString() + ' - ' + (err.stack || err.message) + '\n\n');
+    } catch (e) { }
     res.status(500).json({
       success: false,
       message: "Server error during registration",
+      error: err.message,
     });
   }
 };

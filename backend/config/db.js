@@ -6,8 +6,10 @@ const connectDB = async () => {
       throw new Error("MONGO_URI is not defined in environment variables");
     }
 
+    // Connect using the URI's database name to avoid case-mismatch errors
     await mongoose.connect(process.env.MONGO_URI, {
-      dbName: "dailyCoding", // ✅ forces correct DB
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
 
     console.log("✅ MongoDB connected successfully");
@@ -30,17 +32,17 @@ mongoose.connection.on("error", (err) => {
   console.error("⚠️ MongoDB connection error:", err.message);
 });
 
-// 🛑 Graceful shutdown
-process.on("SIGINT", async () => {
-  await mongoose.connection.close();
-  console.log("🛑 MongoDB connection closed on app termination (SIGINT)");
-  process.exit(0);
-});
+// 🛑 Graceful shutdown - handled in main server file
+// process.on("SIGINT", async () => {
+//   await mongoose.connection.close();
+//   console.log("🛑 MongoDB connection closed on app termination (SIGINT)");
+//   process.exit(0);
+// });
 
-process.on("SIGTERM", async () => {
-  await mongoose.connection.close();
-  console.log("🛑 MongoDB connection closed on app termination (SIGTERM)");
-  process.exit(0);
-});
+// process.on("SIGTERM", async () => {
+//   await mongoose.connection.close();
+//   console.log("🛑 MongoDB connection closed on app termination (SIGTERM)");
+//   process.exit(0);
+// });
 
 module.exports = connectDB;

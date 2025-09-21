@@ -160,6 +160,39 @@ PORT=5000
 CLIENT_URL=https://yourdomain.com
 ```
 
+### Deploying Frontend to Vercel (proxying API)
+
+1. Install the Vercel CLI (optional) and login:
+```bash
+npm i -g vercel
+vercel login
+```
+
+2. In your Vercel project settings, add an environment variable named `BACKEND_URL` pointing to your deployed backend API (e.g. `https://my-backend.example.com`). This proxy forwards `/api/*` to that backend.
+
+3. From the repository root, run:
+```bash
+vercel --prod
+```
+
+Vercel will serve the `frontend/` folder as static files and forward any `/api/*` calls to the backend URL you configured. Ensure your backend enables CORS for the Vercel domain or sets `CLIENT_URL` accordingly.
+
+### Automatic Backend Deploy (GitHub Actions → Heroku Container)
+
+You can set up automatic deployment of the backend Docker image to Heroku when you push to `main`.
+
+1. In your GitHub repository, add the following Secrets:
+   - `HEROKU_API_KEY` — your Heroku account API key
+   - `HEROKU_APP_NAME` — the name of your Heroku app (example: `daily-coding-backend`)
+
+2. The repository already includes a GitHub Actions workflow at `.github/workflows/deploy-backend.yml` that builds a Docker image from `backend/`, pushes it to Heroku Container Registry, and releases it.
+
+3. Ensure your Heroku app has the required config vars set (`MONGO_URI`, `JWT_SECRET`, `NODE_ENV`, `CLIENT_URL`).
+
+4. Push to `main` to trigger the workflow.
+
+
+
 ## Contributing
 
 1. Fork the repository

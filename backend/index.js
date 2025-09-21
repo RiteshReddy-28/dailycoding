@@ -14,10 +14,11 @@ const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: process.env.CLIENT_URL || "*", // ✅ safer in production
+const corsOptions = {
+  origin: process.env.CLIENT_URL || (process.env.NODE_ENV === 'production' ? false : '*'),
   credentials: true,
-}));
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev")); // ✅ logs requests in dev
@@ -60,6 +61,10 @@ app.use((err, req, res, next) => {
 const startServer = async () => {
   try {
     await connectDB();
+    console.log('🔐 JWT_SECRET present:', !!process.env.JWT_SECRET);
+    if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET) {
+      throw new Error('JWT_SECRET must be set in production environment');
+    }
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () =>
       console.log(`🚀 Server running on http://localhost:${PORT}`)
@@ -75,7 +80,8 @@ startServer();
 // Graceful shutdown
 const shutdown = () => {
   console.log("🛑 Server shutting down...");
-  process.exit(0);
+  // Comment out process.exit to prevent shutdown
+  // process.exit(0);
 };
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
