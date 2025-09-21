@@ -3,6 +3,7 @@
   "outputDirectory": "frontend",
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/", "dest": "/frontend/login.html" },
     { "src": "/(.*)", "dest": "/frontend/$1" }
   ]
 }
