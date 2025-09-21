@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const path = require("path");
-require("dotenv").config();
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 const connectDB = require("./config/db");
 
 // Import routes
@@ -33,12 +33,17 @@ app.use("/api/faculty", facultyRoutes);
 app.use("/api/admin", adminRoutes);
 
 // Health check
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({
     status: "✅ OK",
     service: "Daily Coding API",
     environment: process.env.NODE_ENV || "development",
   });
+});
+
+// Serve the main application (login page) for the root route
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/login.html"));
 });
 
 // Error handler middleware

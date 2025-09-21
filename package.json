@@ -4,13 +4,13 @@
   "description": "Full-stack Daily Coding Platform for CHRIST University",
   "main": "backend/index.js",
   "scripts": {
-    "start": "cd backend && npm start",
+    "start": "node backend/index.js",
     "dev": "cd backend && npm run dev",
     "seed": "cd backend && npm run seed",
     "test": "cd backend && npm run test",
     "install-backend": "cd backend && npm install",
     "build": "echo 'No build step required'",
-    "heroku-postbuild": "cd backend && npm run seed"
+    "heroku-postbuild": "npm run seed"
   },
   "keywords": [
     "coding",
@@ -22,6 +22,10 @@
   ],
   "author": "Daily Coding Team",
   "license": "ISC",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/yourusername/daily-coding-platform.git"
