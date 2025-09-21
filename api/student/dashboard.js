@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Question = require('../../backend/models/Question');
-const Submission = require('../../backend/models/Submission');
+const Question = require('../models/Question');
+const Submission = require('../models/Submission');
 const { protect } = require('../utils/auth');
 
 module.exports = async (req, res) => {
