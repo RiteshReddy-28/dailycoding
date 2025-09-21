@@ -114,39 +114,36 @@
       }
 
       try {
-        // Fetch student profile
-        const profileRes = await fetch("http://localhost:3000/api/students/profile", {
+        // Fetch student dashboard data
+        const dashboardRes = await fetch("/api/student/dashboard", {
           headers: { Authorization: `Bearer ${token}` }
         });
-        const profile = await profileRes.json();
-        document.getElementById("studentName").textContent = profile.name;
-        document.getElementById("studentRole").textContent = "Student";
+        const dashboard = await dashboardRes.json();
+        
+        if (dashboard.success) {
+          document.getElementById("studentName").textContent = dashboard.data.user.name;
+          document.getElementById("studentRole").textContent = "Student";
+          
+          // Update today's challenge if available
+          if (dashboard.data.todayQuestion) {
+            document.getElementById("challengeTitle").textContent = dashboard.data.todayQuestion.title;
+            document.getElementById("challengeDescription").textContent = dashboard.data.todayQuestion.description;
+            document.getElementById("challengeDifficulty").textContent = dashboard.data.todayQuestion.difficulty;
+            document.getElementById("challengeTime").textContent = `⏱ ${dashboard.data.todayQuestion.estimatedTime || 30} min`;
+          } else {
+            document.getElementById("challengeTitle").textContent = "No challenge available today";
+            document.getElementById("challengeDescription").textContent = "Check back tomorrow for a new coding challenge!";
+          }
+        } else {
+          alert("Failed to load dashboard: " + dashboard.message);
+        }
 
-        // Fetch progress stats
-        const statsRes = await fetch("http://localhost:3000/api/students/stats", {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        const stats = await statsRes.json();
-        document.getElementById("completedCount").textContent = stats.completed;
-        document.getElementById("missedCount").textContent = stats.missed;
-        document.getElementById("avgTime").textContent = stats.avgTime;
-
-        // Fetch today's challenge
-        const challengeRes = await fetch("http://localhost:3000/api/questions/today", {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        const challenge = await challengeRes.json();
-        document.getElementById("challengeTitle").textContent = challenge.title;
-        document.getElementById("challengeDescription").textContent = challenge.description;
-        document.getElementById("challengeDifficulty").textContent = challenge.difficulty;
-        document.getElementById("challengeTime").textContent = `⏱ ${challenge.estimatedTime} min`;
-
-        // Fetch calendar progress
-        const calendarRes = await fetch("http://localhost:3000/api/students/calendar", {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        const calendar = await calendarRes.json();
-        document.getElementById("monthLabel").textContent = calendar.month;
+        // Fetch calendar progress - placeholder for now
+        // const calendarRes = await fetch("/api/student/calendar", {
+        //   headers: { Authorization: `Bearer ${token}` }
+        // });
+        // const calendar = await calendarRes.json();
+        // document.getElementById("monthLabel").textContent = calendar.month;
 
         // Generate calendar dynamically
         const calendarHTML = `

@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const path = require("path");
 require("dotenv").config();
 const connectDB = require("./config/db");
 
@@ -21,6 +22,9 @@ app.use(express.json());
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev")); // ✅ logs requests in dev
 }
+
+// Serve static files from frontend directory
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Routes
 app.use("/api/auth", authRoutes);

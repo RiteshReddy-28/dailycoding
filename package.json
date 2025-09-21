@@ -1,0 +1,33 @@
+{
+  "name": "daily-coding-platform",
+  "version": "1.0.0",
+  "description": "Full-stack Daily Coding Platform for CHRIST University",
+  "main": "backend/index.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "seed": "cd backend && npm run seed",
+    "test": "cd backend && npm run test",
+    "install-backend": "cd backend && npm install",
+    "build": "echo 'No build step required'",
+    "heroku-postbuild": "cd backend && npm run seed"
+  },
+  "keywords": [
+    "coding",
+    "education",
+    "platform",
+    "nodejs",
+    "mongodb",
+    "express"
+  ],
+  "author": "Daily Coding Team",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/daily-coding-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/daily-coding-platform/issues"
+  },
+  "homepage": "https://github.com/yourusername/daily-coding-platform#readme"
+}

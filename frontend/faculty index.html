@@ -20,7 +20,7 @@
       <div class="user-info">
         <div class="user-details">
           <p class="user-greeting">Logged in as:</p>
-          <p class="user-name">Prof. Smith</p>
+          <p class="user-name" id="facultyName">Loading...</p>
           <p class="user-role">Faculty</p>
         </div>
       </div>
@@ -57,12 +57,16 @@
           </div>
           <div class="overview-stats">
             <div class="stat-item">
-              <span class="stat-value">47</span>
+              <span class="stat-value" id="totalStudents">0</span>
               <span class="stat-label">Total Students</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">82%</span>
-              <span class="stat-label">Avg. Completion</span>
+              <span class="stat-value" id="totalQuestions">0</span>
+              <span class="stat-label">Total Questions</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="totalSubmissions">0</span>
+              <span class="stat-label">Total Submissions</span>
             </div>
           </div>
         </div>
@@ -91,170 +95,10 @@
                   <th scope="col" class="col-actions">Actions</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr role="row" class="student-row high-performer">
-                  <td class="student-info">
-                    <div class="student-details">
-                      <div class="status-indicator active"></div>
-                      <div class="student-name">
-                        <h4>Alex Johnson</h4>
-                        <span class="student-id">ID: CS2023001</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="student-email">alex.j@college.edu</td>
-                  <td class="completion-rate">
-                    <div class="progress-container">
-                      <div class="progress-bar high">
-                        <div class="progress-fill" style="width: 92%"></div>
-                      </div>
-                      <span class="progress-text">92%</span>
-                    </div>
-                  </td>
-                  <td class="recent-activity">
-                    <div class="activity-info">
-                      <span class="activity-text">Completed "Binary Search"</span>
-                      <time class="activity-time" datetime="2025-07-04">Today</time>
-                    </div>
-                  </td>
-                  <td class="student-actions">
-                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
-                      <span class="btn-icon">👁</span>
-                      <span class="btn-text">View</span>
-                    </a>
-                  </td>
-                </tr>
-
-                <tr role="row" class="student-row medium-performer">
-                  <td class="student-info">
-                    <div class="student-details">
-                      <div class="status-indicator warning"></div>
-                      <div class="student-name">
-                        <h4>Taylor Smith</h4>
-                        <span class="student-id">ID: CS2023002</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="student-email">tsmith@college.edu</td>
-                  <td class="completion-rate">
-                    <div class="progress-container">
-                      <div class="progress-bar medium">
-                        <div class="progress-fill" style="width: 78%"></div>
-                      </div>
-                      <span class="progress-text">78%</span>
-                    </div>
-                  </td>
-                  <td class="recent-activity">
-                    <div class="activity-info">
-                      <span class="activity-text">Failed "Linked List Cycle"</span>
-                      <time class="activity-time" datetime="2025-07-03">Yesterday</time>
-                    </div>
-                  </td>
-                  <td class="student-actions">
-                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
-                      <span class="btn-icon">👁</span>
-                      <span class="btn-text">View</span>
-                    </a>
-                  </td>
-                </tr>
-
-                <tr role="row" class="student-row high-performer">
-                  <td class="student-info">
-                    <div class="student-details">
-                      <div class="status-indicator active"></div>
-                      <div class="student-name">
-                        <h4>Jordan Lee</h4>
-                        <span class="student-id">ID: CS2023003</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="student-email">jlee@college.edu</td>
-                  <td class="completion-rate">
-                    <div class="progress-container">
-                      <div class="progress-bar high">
-                        <div class="progress-fill" style="width: 100%"></div>
-                      </div>
-                      <span class="progress-text">100%</span>
-                    </div>
-                  </td>
-                  <td class="recent-activity">
-                    <div class="activity-info">
-                      <span class="activity-text">Completed "Dynamic Programming"</span>
-                      <time class="activity-time" datetime="2025-06-22">12 days ago</time>
-                    </div>
-                  </td>
-                  <td class="student-actions">
-                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
-                      <span class="btn-icon">👁</span>
-                      <span class="btn-text">View</span>
-                    </a>
-                  </td>
-                </tr>
-
-                <tr role="row" class="student-row low-performer">
-                  <td class="student-info">
-                    <div class="student-details">
-                      <div class="status-indicator inactive"></div>
-                      <div class="student-name">
-                        <h4>Casey Brown</h4>
-                        <span class="student-id">ID: CS2023004</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="student-email">cbrown@college.edu</td>
-                  <td class="completion-rate">
-                    <div class="progress-container">
-                      <div class="progress-bar low">
-                        <div class="progress-fill" style="width: 45%"></div>
-                      </div>
-                      <span class="progress-text">45%</span>
-                    </div>
-                  </td>
-                  <td class="recent-activity">
-                    <div class="activity-info">
-                      <span class="activity-text">Missed challenge</span>
-                      <time class="activity-time" datetime="2025-07-01">3 days ago</time>
-                    </div>
-                  </td>
-                  <td class="student-actions">
-                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
-                      <span class="btn-icon">👁</span>
-                      <span class="btn-text">View</span>
-                    </a>
-                  </td>
-                </tr>
-
-                <tr role="row" class="student-row high-performer">
-                  <td class="student-info">
-                    <div class="student-details">
-                      <div class="status-indicator active"></div>
-                      <div class="student-name">
-                        <h4>Riley Garcia</h4>
-                        <span class="student-id">ID: CS2023005</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="student-email">rgarcia@college.edu</td>
-                  <td class="completion-rate">
-                    <div class="progress-container">
-                      <div class="progress-bar high">
-                        <div class="progress-fill" style="width: 85%"></div>
-                      </div>
-                      <span class="progress-text">85%</span>
-                    </div>
-                  </td>
-                  <td class="recent-activity">
-                    <div class="activity-info">
-                      <span class="activity-text">Completed "Graph Algorithms"</span>
-                      <time class="activity-time" datetime="2025-07-04">Today</time>
-                    </div>
-                  </td>
-                  <td class="student-actions">
-                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
-                      <span class="btn-icon">👁</span>
-                      <span class="btn-text">View</span>
-                    </a>
-                  </td>
+              <tbody id="studentsTableBody">
+                <!-- Student data will be populated by JavaScript -->
+                <tr role="row">
+                  <td colspan="5" class="loading-message">Loading student data...</td>
                 </tr>
               </tbody>
             </table>
@@ -263,5 +107,172 @@
       </section>
     </main>
   </div>
+
+  <script>
+    // Check authentication on page load
+    document.addEventListener('DOMContentLoaded', async function() {
+      const token = localStorage.getItem('token');
+      const role = localStorage.getItem('role');
+
+      if (!token || role !== 'faculty') {
+        alert('Unauthorized access! Please log in as faculty.');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Load faculty data
+      await loadFacultyDashboard();
+      await loadStudents();
+    });
+
+    // Load faculty dashboard data
+    async function loadFacultyDashboard() {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch('/api/faculty/dashboard', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          document.getElementById('totalStudents').textContent = data.data.totalStudents;
+          document.getElementById('totalQuestions').textContent = data.data.totalQuestions;
+          document.getElementById('totalSubmissions').textContent = data.data.totalSubmissions;
+        } else {
+          console.error('Failed to load dashboard:', data.message);
+        }
+      } catch (error) {
+        console.error('Error loading dashboard:', error);
+      }
+    }
+
+    // Load students list
+    async function loadStudents() {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch('/api/faculty/students', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          populateStudentsTable(data.data);
+        } else {
+          document.getElementById('studentsTableBody').innerHTML =
+            '<tr><td colspan="5" class="error-message">Failed to load students: ' + (data.message || 'Unknown error') + '</td></tr>';
+        }
+      } catch (error) {
+        console.error('Error loading students:', error);
+        document.getElementById('studentsTableBody').innerHTML =
+          '<tr><td colspan="5" class="error-message">Error loading students. Please try again.</td></tr>';
+      }
+    }
+
+    // Populate students table
+    function populateStudentsTable(students) {
+      const tbody = document.getElementById('studentsTableBody');
+
+      if (!students || students.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="no-data">No students found</td></tr>';
+        return;
+      }
+
+      const rows = students.map((student, index) => {
+        const studentId = `CS2023${String(index + 1).padStart(3, '0')}`;
+        const completionRate = Math.floor(Math.random() * 40) + 60; // Mock completion rate 60-100%
+        const performanceClass = completionRate >= 85 ? 'high-performer' :
+                                completionRate >= 70 ? 'medium-performer' : 'low-performer';
+        const statusClass = completionRate >= 80 ? 'active' :
+                           completionRate >= 60 ? 'warning' : 'inactive';
+
+        return `
+          <tr role="row" class="student-row ${performanceClass}">
+            <td class="student-info">
+              <div class="student-details">
+                <div class="status-indicator ${statusClass}"></div>
+                <div class="student-name">
+                  <h4>${student.name}</h4>
+                  <span class="student-id">ID: ${studentId}</span>
+                </div>
+              </div>
+            </td>
+            <td class="student-email">${student.email}</td>
+            <td class="completion-rate">
+              <div class="progress-container">
+                <div class="progress-bar ${performanceClass.split('-')[0]}">
+                  <div class="progress-fill" style="width: ${completionRate}%"></div>
+                </div>
+                <span class="progress-text">${completionRate}%</span>
+              </div>
+            </td>
+            <td class="recent-activity">
+              <div class="activity-info">
+                <span class="activity-text">Active student</span>
+                <time class="activity-time">Recently</time>
+              </div>
+            </td>
+            <td class="student-actions">
+              <a href="fac student overview.html?id=${student._id}" class="action-btn view-btn" title="View Details">
+                <span class="btn-icon">👁</span>
+                <span class="btn-text">View</span>
+              </a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      tbody.innerHTML = rows;
+    }
+
+    // Handle logout
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.logout')) {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        window.location.href = 'login.html';
+      }
+    });
+
+    // Search functionality
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const rows = document.querySelectorAll('.student-row');
+
+        rows.forEach(row => {
+          const name = row.querySelector('.student-name h4').textContent.toLowerCase();
+          const email = row.querySelector('.student-email').textContent.toLowerCase();
+
+          if (name.includes(searchTerm) || email.includes(searchTerm)) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Filter functionality
+    const filterSelect = document.querySelector('.filter-select');
+    if (filterSelect) {
+      filterSelect.addEventListener('change', function() {
+        const filter = this.value;
+        const rows = document.querySelectorAll('.student-row');
+
+        rows.forEach(row => {
+          if (filter === 'all') {
+            row.style.display = '';
+          } else {
+            const hasClass = row.classList.contains(filter + '-performer');
+            row.style.display = hasClass ? '' : 'none';
+          }
+        });
+      });
+    }
+  </script>
 </body>
 </html>

@@ -15,6 +15,11 @@ const questionSchema = new mongoose.Schema(
       enum: ["easy", "medium", "hard"],
       default: "easy",
     },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
     assignedDate: {
       type: Date,
       default: Date.now, // question of the day

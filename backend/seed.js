@@ -33,18 +33,21 @@ const seedData = async () => {
         description: "Write a function to reverse a given string.",
         difficulty: "easy",
         createdBy: admin._id,
+        assignedDate: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
       },
       {
         title: "Find Prime Numbers",
         description: "Write a program to print all prime numbers up to N.",
         difficulty: "medium",
         createdBy: admin._id,
+        assignedDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
       },
       {
         title: "LRU Cache",
         description: "Design and implement a data structure for Least Recently Used (LRU) cache.",
         difficulty: "hard",
         createdBy: admin._id,
+        assignedDate: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago
       },
     ];
 

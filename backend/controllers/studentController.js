@@ -9,10 +9,20 @@ exports.getDashboard = async (req, res) => {
     const submissions = await Submission.find({ student: studentId }).populate("question", "title difficulty");
 
     const total = submissions.length;
-    const completed = submissions.filter(s => s.status === "completed").length;
-    const missed = submissions.filter(s => s.status === "missed").length;
+    const accepted = submissions.filter(s => s.status === "accepted").length;
+    const rejected = submissions.filter(s => s.status === "rejected").length;
+    const pending = submissions.filter(s => s.status === "pending").length;
 
-    res.status(200).json({ total, completed, missed, submissions });
+    res.status(200).json({
+      success: true,
+      data: {
+        total,
+        accepted,
+        rejected,
+        pending,
+        submissions
+      }
+    });
   } catch (err) {
     res.status(500).json({ message: "Error loading dashboard", error: err.message });
   }
@@ -21,9 +31,18 @@ exports.getDashboard = async (req, res) => {
 // ================== TODAY'S QUESTION ==================
 exports.getTodayQuestion = async (req, res) => {
   try {
-    const today = new Date().toISOString().split("T")[0];
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
 
-    const question = await Question.findOne({ date: today });
+    const question = await Question.findOne({
+      assignedDate: {
+        $gte: today,
+        $lt: tomorrow
+      }
+    }).populate('createdBy', 'name');
+
     if (!question) {
       return res.status(404).json({ message: "No question available for today" });
     }
@@ -62,9 +81,12 @@ exports.submitAnswer = async (req, res) => {
 exports.getSubmissions = async (req, res) => {
   try {
     const submissions = await Submission.find({ student: req.user.id })
-      .populate("question", "title difficulty date");
+      .populate("question", "title difficulty assignedDate");
 
-    res.status(200).json(submissions);
+    res.status(200).json({
+      success: true,
+      data: submissions
+    });
   } catch (err) {
     res.status(500).json({ message: "Error loading submissions", error: err.message });
   }
