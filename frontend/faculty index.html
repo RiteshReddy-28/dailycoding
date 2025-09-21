@@ -34,7 +34,7 @@
             </a>
           </li>
           <li role="none">
-            <a href="login.html" class="nav-link logout" role="menuitem">
+            <a href="index.html" class="nav-link logout" role="menuitem">
               <span class="nav-icon">🚪</span>
               <span class="nav-text">Logout</span>
             </a>
@@ -116,7 +116,7 @@
 
       if (!token || role !== 'faculty') {
         alert('Unauthorized access! Please log in as faculty.');
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
         return;
       }
 
@@ -232,7 +232,7 @@
         e.preventDefault();
         localStorage.removeItem('token');
         localStorage.removeItem('role');
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
       }
     });
 

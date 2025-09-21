@@ -30,7 +30,7 @@
         <ul class="nav-links">
           <li><a href="student1.html" class="nav-link active">📊 Dashboard</a></li>
           <li><a href="student2.html" class="nav-link">📁 Submissions</a></li>
-          <li><a href="login.html" class="nav-link logout" onclick="logout()">🚪 Logout</a></li>
+          <li><a href="index.html" class="nav-link logout" onclick="logout()">🚪 Logout</a></li>
         </ul>
       </nav>
     </aside>
@@ -109,7 +109,7 @@
 
       if (!token || role !== "student") {
         alert("Unauthorized access! Please log in again.");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
         return;
       }
 
@@ -175,7 +175,7 @@
     function logout() {
       localStorage.removeItem("token");
       localStorage.removeItem("role");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     }
 
     // Load dashboard on page load
