@@ -2,6 +2,7 @@
   "version": 2,
   "outputDirectory": "frontend",
   "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/frontend/$1" }
   ]
 }
