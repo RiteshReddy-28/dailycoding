@@ -1,4 +1,4 @@
-name: Deploy Backend to Heroku (Docker)
+name: Deploy Full App to Heroku (Docker)
 
 on:
   push:
@@ -23,9 +23,9 @@ jobs:
         run: |
           echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
 
-      - name: Build Docker image for backend
+      - name: Build Docker image for full app
         run: |
-          docker build -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web ./backend
+          docker build -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web ./
 
       - name: Push image to Heroku Container Registry
         run: |
