@@ -177,6 +177,16 @@ vercel --prod
 
 Vercel will serve the `frontend/` folder as static files and forward any `/api/*` calls to the backend URL you configured. Ensure your backend enables CORS for the Vercel domain or sets `CLIENT_URL` accordingly.
 
+### Deploying Frontend to Netlify
+
+1. In Netlify, create a new site from Git and choose this repository.
+2. Set the `Publish directory` to `frontend`.
+3. Add an environment variable `BACKEND_URL` with the public URL of your backend.
+4. Add `_redirects` (already in the `frontend/` folder) or use `netlify.toml` (present at repo root) to proxy `/api/*` to your backend and to fallback to `index.html` for SPA routes.
+
+Note: Replace `https://YOUR_BACKEND_URL` in `frontend/_redirects` or `netlify.toml` with your actual backend URL or use Netlify's `NETLIFY_REDIRECTS_PLUGIN` features.
+
+
 ### Automatic Backend Deploy (GitHub Actions → Heroku Container)
 
 You can set up automatic deployment of the backend Docker image to Heroku when you push to `main`.
