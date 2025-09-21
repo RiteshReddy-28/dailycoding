@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Question - Daily Coding</title>
+  <link rel="stylesheet" href="add-question.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" role="navigation" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <div class="logo-wrapper">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" alt="CHRIST University Logo" class="logo">
+        </div>
+        <div class="brand">
+          <h2>Daily Coding</h2>
+          <p class="subtitle">College Edition</p>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-details">
+          <p class="user-greeting">Logged in as:</p>
+          <p class="user-name">Admin User</p>
+          <p class="user-role">Administrator</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" role="menubar">
+          <li role="none">
+            <a href="admin-dashboard.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">📊</span>
+              <span class="nav-text">Dashboard</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="admin-questions.html" class="nav-link active" role="menuitem" aria-current="page">
+              <span class="nav-icon">❓</span>
+              <span class="nav-text">Questions</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="admin-analytics.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">📈</span>
+              <span class="nav-text">Analytics</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="login.html" class="nav-link logout" role="menuitem">
+              <span class="nav-icon">🚪</span>
+              <span class="nav-text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1>Add New Question</h1>
+        <p class="page-subtitle">Create a new coding challenge for students</p>
+      </header>
+
+      <section class="form-section">
+        <div class="form-card card">
+          <div class="card-header">
+            <h2>Question Details</h2>
+            <p class="card-subtitle">Fill in the information below to create a new coding question</p>
+          </div>
+
+          <form class="question-form" id="questionForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="questionTitle">Question Title *</label>
+                <input type="text" id="questionTitle" name="title" required 
+                       placeholder="e.g., Two Sum Problem" />
+              </div>
+              
+              <div class="form-group">
+                <label for="difficulty">Difficulty Level *</label>
+                <select id="difficulty" name="difficulty" required>
+                  <option value="">Select difficulty</option>
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" name="category" required>
+                  <option value="">Select category</option>
+                  <option value="arrays">Arrays</option>
+                  <option value="algorithms">Algorithms</option>
+                  <option value="data-structures">Data Structures</option>
+                  <option value="dynamic-programming">Dynamic Programming</option>
+                  <option value="graphs">Graphs</option>
+                  <option value="strings">Strings</option>
+                  <option value="trees">Trees</option>
+                  <option value="sorting">Sorting</option>
+                  <option value="searching">Searching</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="timeLimit">Time Limit (minutes)</label>
+                <input type="number" id="timeLimit" name="timeLimit" min="5" max="180" 
+                       placeholder="60" value="60" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Problem Description *</label>
+              <textarea id="description" name="description" required 
+                        placeholder="Describe the problem clearly with examples and constraints..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="inputFormat">Input Format *</label>
+              <textarea id="inputFormat" name="inputFormat" required 
+                        placeholder="Describe the input format..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="outputFormat">Output Format *</label>
+              <textarea id="outputFormat" name="outputFormat" required 
+                        placeholder="Describe the expected output format..."></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="sampleInput">Sample Input *</label>
+                <textarea id="sampleInput" name="sampleInput" required class="code-input"
+                          placeholder="Provide sample input..."></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="sampleOutput">Sample Output *</label>
+                <textarea id="sampleOutput" name="sampleOutput" required class="code-input"
+                          placeholder="Provide expected output..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="constraints">Constraints</label>
+              <textarea id="constraints" name="constraints" 
+                        placeholder="e.g., 1 ≤ n ≤ 10^5, -10^9 ≤ arr[i] ≤ 10^9"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="hints">Hints (Optional)</label>
+              <textarea id="hints" name="hints" 
+                        placeholder="Provide helpful hints for students..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="solution">Reference Solution *</label>
+              <textarea id="solution" name="solution" required class="code-input"
+                        placeholder="Provide a reference solution in your preferred language..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="cancel-btn" onclick="goBack()">
+                <span class="btn-icon">←</span>
+                <span class="btn-text">Cancel</span>
+              </button>
+              <button type="submit" class="save-btn">
+                <span class="btn-icon">💾</span>
+                <span class="btn-text">Save Question</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-overlay" onclick="closeSuccessModal()"></div>
+    <div class="modal-content success-modal">
+      <div class="success-icon">✅</div>
+      <h3>Question Created Successfully!</h3>
+      <p>The new coding question has been added to the system.</p>
+      <div class="modal-actions">
+        <button class="modal-btn primary" onclick="createAnother()">Create Another</button>
+        <button class="modal-btn secondary" onclick="goToQuestions()">View Questions</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Form validation and submission
+    document.getElementById('questionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Basic validation
+      const requiredFields = ['questionTitle', 'difficulty', 'category', 'description', 'inputFormat', 'outputFormat', 'sampleInput', 'sampleOutput', 'solution'];
+      let isValid = true;
+      
+      requiredFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (!field.value.trim()) {
+          field.style.borderColor = '#ef4444';
+          isValid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      
+      if (isValid) {
+        // Simulate saving
+        setTimeout(() => {
+          document.getElementById('successModal').style.display = 'block';
+        }, 500);
+      } else {
+        alert('Please fill in all required fields.');
+      }
+    });
+
+    // Modal functions
+    function closeSuccessModal() {
+      document.getElementById('successModal').style.display = 'none';
+    }
+
+    function createAnother() {
+      document.getElementById('questionForm').reset();
+      closeSuccessModal();
+    }
+
+    function goToQuestions() {
+      window.location.href = 'admin-questions.html';
+    }
+
+    function goBack() {
+      if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
+        window.location.href = 'admin-questions.html';
+      }
+    }
+
+    // Auto-resize textareas
+    document.querySelectorAll('textarea').forEach(textarea => {
+      textarea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+      });
+    });
+
+    // Real-time validation feedback
+    document.querySelectorAll('input[required], select[required], textarea[required]').forEach(field => {
+      field.addEventListener('blur', function() {
+        if (!this.value.trim()) {
+          this.style.borderColor = '#ef4444';
+        } else {
+          this.style.borderColor = '#10b981';
+        }
+      });
+      
+      field.addEventListener('input', function() {
+        if (this.value.trim()) {
+          this.style.borderColor = '#10b981';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

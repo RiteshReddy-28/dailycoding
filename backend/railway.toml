@@ -1,0 +1,14 @@
+# Railway Deployment Configuration
+# This file tells Railway how to deploy your app
+
+[build]
+  builder = "nixpacks"
+
+[deploy]
+  startCommand = "npm start"
+  restartPolicyType = "on-failure"
+  restartPolicyMaxRetries = 10
+
+[environment]
+  NODE_ENV = "production"
+  PORT = "$PORT"

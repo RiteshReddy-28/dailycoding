@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Monitor - Daily Coding</title>
+  <link rel="stylesheet" href="fac student overview.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" role="navigation" aria-label="Faculty Navigation">
+      <div class="sidebar-header">
+        <div class="logo-wrapper">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" alt="CHRIST University Logo" class="logo">
+        </div>
+        <div class="brand">
+          <h2>Daily Coding</h2>
+          <p class="subtitle">College Edition</p>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-details">
+          <p class="user-greeting">Logged in as:</p>
+          <p class="user-name">Prof. Smith</p>
+          <p class="user-role">Faculty</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" role="menubar">
+          <li role="none">
+            <a href="faculty index.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">📊</span>
+              <span class="nav-text">Student Overview</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="fac student overview.html" class="nav-link active" role="menuitem" aria-current="page">
+              <span class="nav-icon">👤</span>
+              <span class="nav-text">Student Monitor</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="login.html" class="nav-link logout" role="menuitem">
+              <span class="nav-icon">🚪</span>
+              <span class="nav-text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1>Student Monitor</h1>
+        <p class="page-subtitle">Detailed view of individual student progress and activity</p>
+        <a href="faculty index.html" class="back-link">← Back to Overview</a>
+      </header>
+
+      <section class="student-profile-section">
+        <div class="student-profile card">
+          <div class="card-header">
+            <h2>Student Profile</h2>
+            <button class="message-btn" title="Send Message">
+              <span class="btn-icon">💬</span>
+              <span class="btn-text">Message</span>
+            </button>
+          </div>
+
+          <div class="profile-content">
+            <div class="student-avatar">
+              <div class="avatar-circle">AJ</div>
+            </div>
+            
+            <div class="student-info">
+              <h3 class="student-name">Alex Johnson</h3>
+              <p class="student-email">alex.j@college.edu</p>
+              <p class="student-id">Student ID: CS2023001</p>
+              
+              <div class="student-stats">
+                <div class="stat-grid">
+                  <div class="stat-item">
+                    <span class="stat-label">Completion Rate</span>
+                    <span class="stat-value completion-rate">92%</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Current Streak</span>
+                    <span class="stat-value streak">14 days</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Total Submissions</span>
+                    <span class="stat-value submissions">28</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Avg. Time</span>
+                    <span class="stat-value avg-time">18:45</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="activity-section">
+        <div class="activity-calendar card">
+          <div class="card-header">
+            <h2>Activity Calendar</h2>
+            <div class="calendar-controls">
+              <button class="calendar-nav" id="prev-month">‹</button>
+              <span class="calendar-title">July 2025</span>
+              <button class="calendar-nav" id="next-month">›</button>
+            </div>
+          </div>
+
+          <div class="calendar-content">
+            <div class="calendar">
+              <div class="day-labels">
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+              </div>
+              
+              <div class="calendar-grid">
+                <span class="day-cell empty"></span>
+                <span class="day-cell empty"></span>
+                <span class="day-cell complete" title="Completed: Array Manipulation">1</span>
+                <span class="day-cell complete" title="Completed: String Processing">2</span>
+                <span class="day-cell complete" title="Completed: Binary Search">3</span>
+                <span class="day-cell complete" title="Completed: Sorting Algorithms">4</span>
+                <span class="day-cell missed" title="Missed Challenge">5</span>
+                
+                <span class="day-cell complete" title="Completed: Hash Tables">6</span>
+                <span class="day-cell complete" title="Completed: Linked Lists">7</span>
+                <span class="day-cell complete" title="Completed: Stack & Queue">8</span>
+                <span class="day-cell complete" title="Completed: Tree Traversal">9</span>
+                <span class="day-cell complete" title="Completed: Graph Basics">10</span>
+                <span class="day-cell complete" title="Completed: Dynamic Programming">11</span>
+                <span class="day-cell complete" title="Completed: Recursion">12</span>
+                
+                <span class="day-cell complete" title="Completed: Backtracking">13</span>
+                <span class="day-cell complete" title="Completed: Greedy Algorithms">14</span>
+                <span class="day-cell complete" title="Completed: Bit Manipulation">15</span>
+                <span class="day-cell complete" title="Completed: Math Problems">16</span>
+                <span class="day-cell complete" title="Completed: Two Pointers">17</span>
+                <span class="day-cell complete" title="Completed: Sliding Window">18</span>
+                <span class="day-cell missed" title="Missed Challenge">19</span>
+                
+                <span class="day-cell complete" title="Completed: Heap Operations">20</span>
+                <span class="day-cell complete" title="Completed: Trie Structure">21</span>
+                <span class="day-cell complete" title="Completed: Union Find">22</span>
+                <span class="day-cell complete" title="Completed: Topological Sort">23</span>
+                <span class="day-cell complete" title="Completed: Shortest Path">24</span>
+                <span class="day-cell complete" title="Completed: Minimum Spanning Tree">25</span>
+                <span class="day-cell complete" title="Completed: Network Flow">26</span>
+                
+                <span class="day-cell complete" title="Completed: String Matching">27</span>
+                <span class="day-cell complete" title="Completed: Advanced DP">28</span>
+                <span class="day-cell complete" title="Completed: Segment Trees">29</span>
+                <span class="day-cell complete" title="Completed: Binary Indexed Tree">30</span>
+                <span class="day-cell complete" title="Completed: Computational Geometry">31</span>
+                <span class="day-cell empty"></span>
+                <span class="day-cell empty"></span>
+              </div>
+            </div>
+
+            <div class="calendar-legend">
+              <div class="legend-item">
+                <span class="dot green"></span>
+                <span class="legend-text">Completed</span>
+              </div>
+              <div class="legend-item">
+                <span class="dot red"></span>
+                <span class="legend-text">Missed</span>
+              </div>
+              <div class="legend-item">
+                <span class="dot gray"></span>
+                <span class="legend-text">No Challenge</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="recent-activity-section">
+        <div class="recent-activity card">
+          <div class="card-header">
+            <h2>Recent Activity</h2>
+          </div>
+          
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon success">✓</div>
+              <div class="activity-details">
+                <h4>Completed "Binary Search"</h4>
+                <p>Solved in 12:34 • Score: 95/100</p>
+                <time class="activity-time">Today, 2:30 PM</time>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon success">✓</div>
+              <div class="activity-details">
+                <h4>Completed "Sorting Algorithms"</h4>
+                <p>Solved in 18:22 • Score: 88/100</p>
+                <time class="activity-time">Yesterday, 4:15 PM</time>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon success">✓</div>
+              <div class="activity-details">
+                <h4>Completed "Array Manipulation"</h4>
+                <p>Solved in 15:45 • Score: 92/100</p>
+                <time class="activity-time">2 days ago, 1:20 PM</time>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon failed">✗</div>
+              <div class="activity-details">
+                <h4>Failed "Linked List Cycle"</h4>
+                <p>Time limit exceeded • Score: 45/100</p>
+                <time class="activity-time">3 days ago, 3:45 PM</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Simple calendar navigation
+    document.getElementById('prev-month')?.addEventListener('click', function() {
+      // Previous month logic would go here
+      console.log('Previous month clicked');
+    });
+
+    document.getElementById('next-month')?.addEventListener('click', function() {
+      // Next month logic would go here
+      console.log('Next month clicked');
+    });
+
+    // Add hover effects for calendar cells
+    document.querySelectorAll('.day-cell').forEach(cell => {
+      cell.addEventListener('mouseenter', function() {
+        if (this.title) {
+          // Could show tooltip here
+        }
+      });
+    });
+  </script>
+</body>
+</html>

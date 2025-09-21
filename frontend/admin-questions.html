@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Question Manager - Daily Coding</title>
+  <link rel="stylesheet" href="admin-questions.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" role="navigation" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" alt="CHRIST University Logo" class="logo">
+        <div class="brand">
+          <h2>Daily Coding</h2>
+          <p class="subtitle">College Edition</p>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-details">
+          <p class="user-greeting">Logged in as:</p>
+          <p class="user-name">Admin User</p>
+          <p class="user-role">Administrator</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" role="menubar">
+          <li role="none">
+            <a href="admin-dashboard.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">📊</span>
+              <span class="nav-text">Dashboard</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="admin-questions.html" class="nav-link active" role="menuitem" aria-current="page">
+              <span class="nav-icon">📝</span>
+              <span class="nav-text">Questions</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="admin-analytics.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">📈</span>
+              <span class="nav-text">Analytics</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="login.html" class="nav-link logout" role="menuitem">
+              <span class="nav-icon">🚪</span>
+              <span class="nav-text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1>Question Manager</h1>
+        <p class="page-subtitle">Create, edit, and manage coding challenges</p>
+      </header>
+
+      <section class="questions-section">
+        <div class="questions-card card">
+          <div class="card-header">
+            <div class="header-content">
+              <h2>Question Library</h2>
+              <div class="question-stats">
+                <span class="stat-item">
+                  <span class="stat-value">45</span>
+                  <span class="stat-label">Total Questions</span>
+                </span>
+                <span class="stat-item">
+                  <span class="stat-value">12</span>
+                  <span class="stat-label">This Month</span>
+                </span>
+              </div>
+            </div>
+            
+            <div class="header-actions">
+              <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search questions by title..." aria-label="Search questions">
+                <span class="search-icon">🔍</span>
+              </div>
+              <a href="add-question.html" class="add-btn primary-btn">
+                <span class="btn-icon">➕</span>
+                <span class="btn-text">Add Question</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="questions-table" role="table" aria-label="Questions List">
+              <thead>
+                <tr role="row">
+                  <th scope="col" class="col-question">Question</th>
+                  <th scope="col" class="col-difficulty">Difficulty</th>
+                  <th scope="col" class="col-updated">Last Updated</th>
+                  <th scope="col" class="col-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr role="row" class="question-row">
+                  <td class="question-info">
+                    <div class="question-details">
+                      <h4 class="question-title">Binary Search Implementation</h4>
+                      <p class="question-category">Arrays & Searching</p>
+                    </div>
+                  </td>
+                  <td class="question-difficulty">
+                    <span class="difficulty-badge medium">Medium</span>
+                  </td>
+                  <td class="question-updated">
+                    <time datetime="2025-07-04">July 4, 2025</time>
+                  </td>
+                  <td class="question-actions">
+                    <div class="action-buttons">
+                      <button class="action-btn edit-btn" title="Edit Question">
+                        <span class="btn-icon">✏️</span>
+                        <span class="btn-text">Edit</span>
+                      </button>
+                      <button class="action-btn delete-btn" title="Delete Question">
+                        <span class="btn-icon">🗑️</span>
+                        <span class="btn-text">Delete</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                
+                <tr role="row" class="question-row">
+                  <td class="question-info">
+                    <div class="question-details">
+                      <h4 class="question-title">Reverse Linked List</h4>
+                      <p class="question-category">Linked Lists</p>
+                    </div>
+                  </td>
+                  <td class="question-difficulty">
+                    <span class="difficulty-badge medium">Medium</span>
+                  </td>
+                  <td class="question-updated">
+                    <time datetime="2025-07-04">July 4, 2025</time>
+                  </td>
+                  <td class="question-actions">
+                    <div class="action-buttons">
+                      <button class="action-btn edit-btn" title="Edit Question">
+                        <span class="btn-icon">✏️</span>
+                        <span class="btn-text">Edit</span>
+                      </button>
+                      <button class="action-btn delete-btn" title="Delete Question">
+                        <span class="btn-icon">🗑️</span>
+                        <span class="btn-text">Delete</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                
+                <tr role="row" class="question-row">
+                  <td class="question-info">
+                    <div class="question-details">
+                      <h4 class="question-title">Valid Parentheses</h4>
+                      <p class="question-category">Stack & Queues</p>
+                    </div>
+                  </td>
+                  <td class="question-difficulty">
+                    <span class="difficulty-badge easy">Easy</span>
+                  </td>
+                  <td class="question-updated">
+                    <time datetime="2025-07-04">July 4, 2025</time>
+                  </td>
+                  <td class="question-actions">
+                    <div class="action-buttons">
+                      <button class="action-btn edit-btn" title="Edit Question">
+                        <span class="btn-icon">✏️</span>
+                        <span class="btn-text">Edit</span>
+                      </button>
+                      <button class="action-btn delete-btn" title="Delete Question">
+                        <span class="btn-icon">🗑️</span>
+                        <span class="btn-text">Delete</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

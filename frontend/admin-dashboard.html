@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - Daily Coding</title>
+  <link rel="stylesheet" href="admin-style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" role="navigation" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <div class="logo-wrapper">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" alt="CHRIST University Logo" class="logo">
+        </div>
+        <div class="brand">
+          <h2>Daily Coding</h2>
+          <p class="subtitle">College Edition</p>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-details">
+          <p class="user-greeting">Logged in as:</p>
+          <p class="user-name">Admin User</p>
+          <p class="user-role">Administrator</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" role="menubar">
+          <li role="none">
+            <a href="admin-dashboard.html" class="nav-link active" role="menuitem" aria-current="page">
+              <span class="nav-icon">📊</span>
+              <span class="nav-text">Dashboard</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="admin-questions.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">❓</span>
+              <span class="nav-text">Questions</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="admin-analytics.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">📈</span>
+              <span class="nav-text">Analytics</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="login.html" class="nav-link logout" role="menuitem">
+              <span class="nav-icon">🚪</span>
+              <span class="nav-text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1>Admin Dashboard</h1>
+        <p class="page-subtitle">System overview and management controls</p>
+      </header>
+
+      <section class="stats-section">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-content">
+              <h3>Total Students</h3>
+              <p class="stat-number">247</p>
+              <span class="stat-change positive">+12 this week</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">👨‍🏫</div>
+            <div class="stat-content">
+              <h3>Active Faculty</h3>
+              <p class="stat-number">18</p>
+              <span class="stat-change neutral">No change</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">📝</div>
+            <div class="stat-content">
+              <h3>Total Questions</h3>
+              <p class="stat-number">156</p>
+              <span class="stat-change positive">+8 this month</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-content">
+              <h3>Submissions Today</h3>
+              <p class="stat-number">1,234</p>
+              <span class="stat-change positive">+15% vs yesterday</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="engagement-section">
+        <div class="engagement-card card">
+          <div class="card-header">
+            <h2>Student Engagement</h2>
+            <div class="time-filter">
+              <label for="engagement-time-filter" class="visually-hidden">Select time period</label>
+              <select class="filter-select" id="engagement-time-filter" aria-label="Select time period">
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month" selected>This Month</option>
+                <option value="year">This Year</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="engagement-content">
+            <div class="engagement-chart">
+              <div class="chart-placeholder">
+                <div class="chart-bars">
+                  <div class="bar" style="height: 60%"><span>Mon</span></div>
+                  <div class="bar" style="height: 80%"><span>Tue</span></div>
+                  <div class="bar" style="height: 45%"><span>Wed</span></div>
+                  <div class="bar" style="height: 90%"><span>Thu</span></div>
+                  <div class="bar" style="height: 75%"><span>Fri</span></div>
+                  <div class="bar" style="height: 30%"><span>Sat</span></div>
+                  <div class="bar" style="height: 25%"><span>Sun</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="engagement-metrics">
+              <div class="metric-item">
+                <span class="metric-label">Average Daily Active Users</span>
+                <span class="metric-value">186</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-label">Peak Activity Time</span>
+                <span class="metric-value">2:00 PM - 4:00 PM</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-label">Completion Rate</span>
+                <span class="metric-value">78.5%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="recent-activity-section">
+        <div class="recent-activity card">
+          <div class="card-header">
+            <h2>Recent System Activity</h2>
+            <a href="admin-analytics.html" class="view-all-link">View All</a>
+          </div>
+
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon user-added">+</div>
+              <div class="activity-details">
+                <h4>New student registered</h4>
+                <p>Sarah Wilson (ID: CS2025048) joined the platform</p>
+                <time class="activity-time">5 minutes ago</time>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon question-added">?</div>
+              <div class="activity-details">
+                <h4>New question added</h4>
+                <p>Prof. Johnson added "Advanced Graph Algorithms"</p>
+                <time class="activity-time">1 hour ago</time>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon system-update">⚙</div>
+              <div class="activity-details">
+                <h4>System maintenance completed</h4>
+                <p>Database optimization and backup completed successfully</p>
+                <time class="activity-time">3 hours ago</time>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon alert">⚠</div>
+              <div class="activity-details">
+                <h4>High server load detected</h4>
+                <p>Server load peaked at 85% during peak hours</p>
+                <time class="activity-time">6 hours ago</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section class="quick-actions-section">
+  <div class="quick-actions card">
+    <div class="card-header">
+      <h2>Quick Actions</h2>
+    </div>
+
+    <div class="actions-grid">
+      <a href="add-question.html" class="action-btn primary">
+        <span class="btn-icon">➕</span>
+        <span class="btn-text">Add New Question</span>
+      </a>
+
+      <a href="admin-users.html" class="action-btn secondary">
+        <span class="btn-icon">👥</span>
+        <span class="btn-text">Manage Users</span>
+      </a>
+
+      <a href="admin-analytics.html" class="action-btn secondary">
+        <span class="btn-icon">📊</span>
+        <span class="btn-text">Generate Report</span>
+      </a>
+
+      <a href="admin-settings.html" class="action-btn secondary">
+        <span class="btn-icon">⚙</span>
+        <span class="btn-text">System Settings</span>
+      </a>
+    </div>
+  </div>
+</section>

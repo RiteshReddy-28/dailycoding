@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analytics Dashboard - Daily Coding</title>
+  <link rel="stylesheet" href="admin-analytics.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" role="navigation" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <div class="logo-wrapper">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" alt="CHRIST University Logo" class="logo">
+        </div>
+        <div class="brand">
+          <h2>Daily Coding</h2>
+          <p class="subtitle">College Edition</p>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-details">
+          <p class="user-greeting">Logged in as:</p>
+          <p class="user-name">Admin User</p>
+          <p class="user-role">Administrator</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" role="menubar">
+          <li role="none">
+            <a href="admin-dashboard.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">📊</span>
+              <span class="nav-text">Dashboard</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="admin-questions.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">❓</span>
+              <span class="nav-text">Questions</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="admin-analytics.html" class="nav-link active" role="menuitem" aria-current="page">
+              <span class="nav-icon">📈</span>
+              <span class="nav-text">Analytics</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="login.html" class="nav-link logout" role="menuitem">
+              <span class="nav-icon">🚪</span>
+              <span class="nav-text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <div class="header-content">
+          <h1>Platform Analytics</h1>
+          <p class="page-subtitle">Comprehensive insights into student performance and engagement</p>
+        </div>
+        
+        <div class="period-toggle">
+          <input type="radio" id="week-toggle" name="period" value="week" checked>
+          <input type="radio" id="month-toggle" name="period" value="month">
+          
+          <label for="week-toggle" class="toggle-btn">
+            <span class="toggle-text">This Week</span>
+          </label>
+          <label for="month-toggle" class="toggle-btn">
+            <span class="toggle-text">This Month</span>
+          </label>
+        </div>
+      </header>
+
+      <!-- Weekly Analytics -->
+      <section class="analytics-section weekly-section" id="weekly-analytics">
+        <div class="analytics-grid">
+          <div class="analytics-card student-activity">
+            <div class="card-header">
+              <h2>Weekly Student Activity</h2>
+              <div class="card-meta">
+                <span class="period-indicator">July 1-7, 2025</span>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-placeholder">
+                <div class="chart-icon">📊</div>
+                <p>Student activity chart visualization</p>
+                <div class="chart-stats">
+                  <span class="stat-item">Peak: 2:00 PM</span>
+                  <span class="stat-item">Avg: 45 users/hour</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-card completion-trend">
+            <div class="card-header">
+              <h2>Completion Rate Trend</h2>
+              <div class="card-meta">
+                <span class="trend-indicator positive">↗ +5.2%</span>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-placeholder">
+                <div class="chart-icon">📈</div>
+                <p>Weekly completion rate trends</p>
+                <div class="trend-stats">
+                  <span class="current-rate">Current: 78%</span>
+                  <span class="previous-rate">Previous: 73%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-card difficulty-distribution">
+            <div class="card-header">
+              <h2>Question Difficulty Distribution</h2>
+              <div class="card-meta">
+                <span class="distribution-info">Weekly breakdown</span>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-placeholder">
+                <div class="chart-icon">🥧</div>
+                <p>Difficulty level distribution</p>
+                <div class="difficulty-breakdown">
+                  <div class="difficulty-item">
+                    <span class="difficulty-label easy">Easy</span>
+                    <span class="difficulty-percent">45%</span>
+                  </div>
+                  <div class="difficulty-item">
+                    <span class="difficulty-label medium">Medium</span>
+                    <span class="difficulty-percent">35%</span>
+                  </div>
+                  <div class="difficulty-item">
+                    <span class="difficulty-label hard">Hard</span>
+                    <span class="difficulty-percent">20%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-card engagement-metrics">
+            <div class="card-header">
+              <h2>Weekly Engagement Metrics</h2>
+              <div class="card-meta">
+                <span class="engagement-score">Score: 8.4/10</span>
+              </div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-item">
+                <span class="metric-value">4.2h</span>
+                <span class="metric-label">Avg. Session</span>
+                <span class="metric-change positive">+0.3h</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">89%</span>
+                <span class="metric-label">Retention</span>
+                <span class="metric-change positive">+2%</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">156</span>
+                <span class="metric-label">Active Users</span>
+                <span class="metric-change positive">+12</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">2.3</span>
+                <span class="metric-label">Avg. Attempts</span>
+                <span class="metric-change neutral">±0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Monthly Analytics -->
+      <section class="analytics-section monthly-section" id="monthly-analytics" style="display: none;">
+        <div class="analytics-grid">
+          <div class="analytics-card student-activity">
+            <div class="card-header">
+              <h2>Monthly Student Activity</h2>
+              <div class="card-meta">
+                <span class="period-indicator">July 2025</span>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-placeholder">
+                <div class="chart-icon">📊</div>
+                <p>Monthly student activity overview</p>
+                <div class="chart-stats">
+                  <span class="stat-item">Peak Day: July 15th</span>
+                  <span class="stat-item">Avg: 203 users/day</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-card completion-trend">
+            <div class="card-header">
+              <h2>Monthly Completion Trends</h2>
+              <div class="card-meta">
+                <span class="trend-indicator positive">↗ +12.8%</span>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-placeholder">
+                <div class="chart-icon">📈</div>
+                <p>Monthly completion rate analysis</p>
+                <div class="trend-stats">
+                  <span class="current-rate">Current: 82%</span>
+                  <span class="previous-rate">Previous: 69%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-card difficulty-distribution">
+            <div class="card-header">
+              <h2>Monthly Difficulty Analysis</h2>
+              <div class="card-meta">
+                <span class="distribution-info">Full month data</span>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-placeholder">
+                <div class="chart-icon">🥧</div>
+                <p>Monthly difficulty preferences</p>
+                <div class="difficulty-breakdown">
+                  <div class="difficulty-item">
+                    <span class="difficulty-label easy">Easy</span>
+                    <span class="difficulty-percent">42%</span>
+                  </div>
+                  <div class="difficulty-item">
+                    <span class="difficulty-label medium">Medium</span>
+                    <span class="difficulty-percent">38%</span>
+                  </div>
+                  <div class="difficulty-item">
+                    <span class="difficulty-label hard">Hard</span>
+                    <span class="difficulty-percent">20%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="analytics-card engagement-metrics">
+            <div class="card-header">
+              <h2>Monthly Engagement Overview</h2>
+              <div class="card-meta">
+                <span class="engagement-score">Score: 8.7/10</span>
+              </div>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-item">
+                <span class="metric-value">3.8h</span>
+                <span class="metric-label">Avg. Session</span>
+                <span class="metric-change negative">-0.4h</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">92%</span>
+                <span class="metric-label">Retention</span>
+                <span class="metric-change positive">+3%</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">203</span>
+                <span class="metric-label">Total Users</span>
+                <span class="metric-change positive">+47</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">2.1</span>
+                <span class="metric-label">Avg. Attempts</span>
+                <span class="metric-change negative">-0.2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Toggle functionality
+    const weekToggle = document.getElementById('week-toggle');
+    const monthToggle = document.getElementById('month-toggle');
+    const weeklySection = document.getElementById('weekly-analytics');
+    const monthlySection = document.getElementById('monthly-analytics');
+
+    function showWeekly() {
+      weeklySection.style.display = 'block';
+      monthlySection.style.display = 'none';
+    }
+
+    function showMonthly() {
+      weeklySection.style.display = 'none';
+      monthlySection.style.display = 'block';
+    }
+
+    weekToggle.addEventListener('change', function() {
+      if (this.checked) {
+        showWeekly();
+      }
+    });
+
+    monthToggle.addEventListener('change', function() {
+      if (this.checked) {
+        showMonthly();
+      }
+    });
+
+    // Initialize with weekly view
+    showWeekly();
+
+    // Add some interactive animations
+    document.querySelectorAll('.analytics-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>

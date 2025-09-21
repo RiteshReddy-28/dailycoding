@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Submissions - Daily Coding</title>
+  <link rel="stylesheet" href="student-submissions.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" role="navigation" aria-label="Main Navigation">
+      <div class="sidebar-header">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" alt="CHRIST University Logo" class="logo">
+        <div class="brand">
+          <h2>Daily Coding</h2>
+          <p class="subtitle">College Edition</p>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-details">
+          <p class="user-greeting">Logged in as:</p>
+          <p class="user-name">John Smith</p>
+          <p class="user-role">Student</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" role="menubar">
+          <li role="none">
+            <a href="student1.html" class="nav-link" role="menuitem">
+              <span class="nav-icon">📊</span>
+              <span class="nav-text">Dashboard</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="student2.html" class="nav-link active" role="menuitem" aria-current="page">
+              <span class="nav-icon">📁</span>
+              <span class="nav-text">Submissions</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="login.html" class="nav-link logout" role="menuitem">
+              <span class="nav-icon">🚪</span>
+              <span class="nav-text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1>Submission History</h1>
+        <p class="page-subtitle">Review your past coding challenges and performance</p>
+      </header>
+
+      <section class="submissions-section">
+        <div class="submissions-card card">
+          <div class="card-header">
+            <h2>Recent Submissions</h2>
+            <div class="submissions-stats">
+              <span class="stat-item">
+                <span class="stat-value">21</span>
+                <span class="stat-label">Total</span>
+              </span>
+              <span class="stat-item">
+                <span class="stat-value">85.7%</span>
+                <span class="stat-label">Success Rate</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="submissions-table" role="table" aria-label="Submission History">
+              <thead>
+                <tr role="row">
+                  <th scope="col" class="col-date">Date</th>
+                  <th scope="col" class="col-problem">Problem</th>
+                  <th scope="col" class="col-time">Time Spent</th>
+                  <th scope="col" class="col-status">Status</th>
+                  <th scope="col" class="col-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr role="row" class="submission-row">
+                  <td class="submission-date">
+                    <time datetime="2023-05-15">May 15, 2023</time>
+                  </td>
+                  <td class="submission-problem">
+                    <div class="problem-info">
+                      <h4>Binary Search Implementation</h4>
+                      <span class="difficulty-badge medium">Medium</span>
+                    </div>
+                  </td>
+                  <td class="submission-time">
+                    <span class="time-value">18:45</span>
+                  </td>
+                  <td class="submission-status">
+                    <span class="status-badge passed">
+                      <span class="status-icon">✅</span>
+                      <span class="status-text">Passed</span>
+                    </span>
+                  </td>
+                  <td class="submission-actions">
+                    <a href="#" class="action-btn view-btn" title="View Submission">
+                      <span class="btn-icon">👁</span>
+                      <span class="btn-text">View</span>
+                    </a>
+                  </td>
+                </tr>
+                
+                <tr role="row" class="submission-row">
+                  <td class="submission-date">
+                    <time datetime="2023-05-14">May 14, 2023</time>
+                  </td>
+                  <td class="submission-problem">
+                    <div class="problem-info">
+                      <h4>Reverse Linked List</h4>
+                      <span class="difficulty-badge medium">Medium</span>
+                    </div>
+                  </td>
+                  <td class="submission-time">
+                    <span class="time-value">25:30</span>
+                  </td>
+                  <td class="submission-status">
+                    <span class="status-badge failed">
+                      <span class="status-icon">❌</span>
+                      <span class="status-text">Failed</span>
+                    </span>
+                  </td>
+                  <td class="submission-actions">
+                    <a href="#" class="action-btn view-btn" title="View Submission">
+                      <span class="btn-icon">👁</span>
+                      <span class="btn-text">View</span>
+                    </a>
+                  </td>
+                </tr>
+                
+                <tr role="row" class="submission-row">
+                  <td class="submission-date">
+                    <time datetime="2023-05-13">May 13, 2023</time>
+                  </td>
+                  <td class="submission-problem">
+                    <div class="problem-info">
+                      <h4>Valid Parentheses</h4>
+                      <span class="difficulty-badge easy">Easy</span>
+                    </div>
+                  </td>
+                  <td class="submission-time">
+                    <span class="time-value">12:15</span>
+                  </td>
+                  <td class="submission-status">
+                    <span class="status-badge passed">
+                      <span class="status-icon">✅</span>
+                      <span class="status-text">Passed</span>
+                    </span>
+                  </td>
+                  <td class="submission-actions">
+                    <a href="#" class="action-btn view-btn" title="View Submission">
+                      <span class="btn-icon">👁</span>
+                      <span class="btn-text">View</span>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

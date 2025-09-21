@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard - Daily Coding</title>
+  <link rel="stylesheet" href="dashboard1.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" 
+             alt="CHRIST University Logo" class="logo">
+        <div class="brand">
+          <h2>Daily Coding</h2>
+          <p class="subtitle">College Edition</p>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-details">
+          <p class="user-greeting">Logged in as:</p>
+          <p class="user-name" id="studentName">Loading...</p>
+          <p class="user-role" id="studentRole">Student</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="student1.html" class="nav-link active">📊 Dashboard</a></li>
+          <li><a href="student2.html" class="nav-link">📁 Submissions</a></li>
+          <li><a href="login.html" class="nav-link logout" onclick="logout()">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <h1>Student Dashboard</h1>
+        <p class="page-subtitle">Track your coding progress and daily challenges</p>
+      </header>
+
+      <section class="dashboard-grid">
+        <!-- Progress Card -->
+        <div class="progress-card card">
+          <div class="card-header">
+            <h2>Your Progress</h2>
+            <p class="month-indicator" id="monthLabel"></p>
+          </div>
+          <div id="calendarContainer" class="calendar-container">
+            <!-- Calendar will be generated dynamically -->
+          </div>
+        </div>
+
+        <!-- Challenge Card -->
+        <div class="challenge-card card">
+          <div class="card-header">
+            <h2>Today's Challenge</h2>
+            <div class="challenge-meta">
+              <span class="difficulty-badge" id="challengeDifficulty">Loading...</span>
+              <span class="time-estimate" id="challengeTime">⏱ -- min</span>
+            </div>
+          </div>
+          <div class="challenge-content">
+            <h3 class="challenge-title" id="challengeTitle">Loading...</h3>
+            <p class="challenge-description" id="challengeDescription">Please wait...</p>
+            <a href="student3.html" class="start-button">
+              🚀 <span class="btn-text">Start Challenge</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card completed">
+            <div class="stat-icon">✅</div>
+            <div class="stat-content">
+              <h3>Completed</h3>
+              <p class="stat-number" id="completedCount">0</p>
+              <p class="stat-label">challenges</p>
+            </div>
+          </div>
+          <div class="stat-card missed">
+            <div class="stat-icon">❌</div>
+            <div class="stat-content">
+              <h3>Missed</h3>
+              <p class="stat-number" id="missedCount">0</p>
+              <p class="stat-label">challenges</p>
+            </div>
+          </div>
+          <div class="stat-card average">
+            <div class="stat-icon">⏱</div>
+            <div class="stat-content">
+              <h3>Avg. Time</h3>
+              <p class="stat-number" id="avgTime">--</p>
+              <p class="stat-label">minutes</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    async function loadDashboard() {
+      const token = localStorage.getItem("token");
+      const role = localStorage.getItem("role");
+
+      if (!token || role !== "student") {
+        alert("Unauthorized access! Please log in again.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      try {
+        // Fetch student profile
+        const profileRes = await fetch("http://localhost:3000/api/students/profile", {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const profile = await profileRes.json();
+        document.getElementById("studentName").textContent = profile.name;
+        document.getElementById("studentRole").textContent = "Student";
+
+        // Fetch progress stats
+        const statsRes = await fetch("http://localhost:3000/api/students/stats", {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const stats = await statsRes.json();
+        document.getElementById("completedCount").textContent = stats.completed;
+        document.getElementById("missedCount").textContent = stats.missed;
+        document.getElementById("avgTime").textContent = stats.avgTime;
+
+        // Fetch today's challenge
+        const challengeRes = await fetch("http://localhost:3000/api/questions/today", {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const challenge = await challengeRes.json();
+        document.getElementById("challengeTitle").textContent = challenge.title;
+        document.getElementById("challengeDescription").textContent = challenge.description;
+        document.getElementById("challengeDifficulty").textContent = challenge.difficulty;
+        document.getElementById("challengeTime").textContent = `⏱ ${challenge.estimatedTime} min`;
+
+        // Fetch calendar progress
+        const calendarRes = await fetch("http://localhost:3000/api/students/calendar", {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const calendar = await calendarRes.json();
+        document.getElementById("monthLabel").textContent = calendar.month;
+
+        // Generate calendar dynamically
+        const calendarHTML = `
+          <div class="calendar">
+            <div class="calendar-header">
+              <div class="day-label">Sun</div>
+              <div class="day-label">Mon</div>
+              <div class="day-label">Tue</div>
+              <div class="day-label">Wed</div>
+              <div class="day-label">Thu</div>
+              <div class="day-label">Fri</div>
+              <div class="day-label">Sat</div>
+            </div>
+            <div class="calendar-grid">
+              ${calendar.days.map(d => `
+                <div class="calendar-day ${d.status}" title="${d.tooltip}">${d.date}</div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        document.getElementById("calendarContainer").innerHTML = calendarHTML;
+
+      } catch (err) {
+        console.error("Error loading dashboard:", err);
+        alert("⚠️ Failed to load dashboard data");
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("role");
+      window.location.href = "login.html";
+    }
+
+    // Load dashboard on page load
+    loadDashboard();
+  </script>
+</body>
+</html>

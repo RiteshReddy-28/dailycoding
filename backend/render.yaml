@@ -1,0 +1,11 @@
+# Render Build Script
+version: 1
+
+# Build settings
+build:
+  - name: backend
+    buildCommand: npm install
+    startCommand: npm start
+    env:
+      - key: NODE_ENV
+        value: production

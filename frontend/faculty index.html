@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty Dashboard - Daily Coding</title>
+  <link rel="stylesheet" href="faculty index.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" role="navigation" aria-label="Faculty Navigation">
+      <div class="sidebar-header">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" alt="CHRIST University Logo" class="logo">
+        <div class="brand">
+          <h2>Daily Coding</h2>
+          <p class="subtitle">College Edition</p>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-details">
+          <p class="user-greeting">Logged in as:</p>
+          <p class="user-name">Prof. Smith</p>
+          <p class="user-role">Faculty</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links" role="menubar">
+          <li role="none">
+            <a href="faculty index.html" class="nav-link active" role="menuitem" aria-current="page">
+              <span class="nav-icon">📊</span>
+              <span class="nav-text">Student Overview</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="login.html" class="nav-link logout" role="menuitem">
+              <span class="nav-icon">🚪</span>
+              <span class="nav-text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1>Student Overview</h1>
+        <p class="page-subtitle">Monitor student progress and engagement across all coding challenges</p>
+      </header>
+
+      <section class="overview-section">
+        <div class="search-container">
+          <div class="search-wrapper">
+            <input type="search" class="search-input" placeholder="Search students by name or email..." aria-label="Search students">
+            <span class="search-icon">🔍</span>
+          </div>
+          <div class="overview-stats">
+            <div class="stat-item">
+              <span class="stat-value">47</span>
+              <span class="stat-label">Total Students</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">82%</span>
+              <span class="stat-label">Avg. Completion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="students-card card">
+          <div class="card-header">
+            <h2>Student Performance</h2>
+            <div class="filter-options">
+              <select class="filter-select" aria-label="Filter by performance">
+                <option value="all">All Students</option>
+                <option value="high">High Performers</option>
+                <option value="medium">Average Performers</option>
+                <option value="low">Needs Attention</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="students-table" role="table" aria-label="Student Performance Data">
+              <thead>
+                <tr role="row">
+                  <th scope="col" class="col-student">Student</th>
+                  <th scope="col" class="col-email">Email</th>
+                  <th scope="col" class="col-completion">Completion Rate</th>
+                  <th scope="col" class="col-activity">Recent Activity</th>
+                  <th scope="col" class="col-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr role="row" class="student-row high-performer">
+                  <td class="student-info">
+                    <div class="student-details">
+                      <div class="status-indicator active"></div>
+                      <div class="student-name">
+                        <h4>Alex Johnson</h4>
+                        <span class="student-id">ID: CS2023001</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="student-email">alex.j@college.edu</td>
+                  <td class="completion-rate">
+                    <div class="progress-container">
+                      <div class="progress-bar high">
+                        <div class="progress-fill" style="width: 92%"></div>
+                      </div>
+                      <span class="progress-text">92%</span>
+                    </div>
+                  </td>
+                  <td class="recent-activity">
+                    <div class="activity-info">
+                      <span class="activity-text">Completed "Binary Search"</span>
+                      <time class="activity-time" datetime="2025-07-04">Today</time>
+                    </div>
+                  </td>
+                  <td class="student-actions">
+                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
+                      <span class="btn-icon">👁</span>
+                      <span class="btn-text">View</span>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr role="row" class="student-row medium-performer">
+                  <td class="student-info">
+                    <div class="student-details">
+                      <div class="status-indicator warning"></div>
+                      <div class="student-name">
+                        <h4>Taylor Smith</h4>
+                        <span class="student-id">ID: CS2023002</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="student-email">tsmith@college.edu</td>
+                  <td class="completion-rate">
+                    <div class="progress-container">
+                      <div class="progress-bar medium">
+                        <div class="progress-fill" style="width: 78%"></div>
+                      </div>
+                      <span class="progress-text">78%</span>
+                    </div>
+                  </td>
+                  <td class="recent-activity">
+                    <div class="activity-info">
+                      <span class="activity-text">Failed "Linked List Cycle"</span>
+                      <time class="activity-time" datetime="2025-07-03">Yesterday</time>
+                    </div>
+                  </td>
+                  <td class="student-actions">
+                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
+                      <span class="btn-icon">👁</span>
+                      <span class="btn-text">View</span>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr role="row" class="student-row high-performer">
+                  <td class="student-info">
+                    <div class="student-details">
+                      <div class="status-indicator active"></div>
+                      <div class="student-name">
+                        <h4>Jordan Lee</h4>
+                        <span class="student-id">ID: CS2023003</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="student-email">jlee@college.edu</td>
+                  <td class="completion-rate">
+                    <div class="progress-container">
+                      <div class="progress-bar high">
+                        <div class="progress-fill" style="width: 100%"></div>
+                      </div>
+                      <span class="progress-text">100%</span>
+                    </div>
+                  </td>
+                  <td class="recent-activity">
+                    <div class="activity-info">
+                      <span class="activity-text">Completed "Dynamic Programming"</span>
+                      <time class="activity-time" datetime="2025-06-22">12 days ago</time>
+                    </div>
+                  </td>
+                  <td class="student-actions">
+                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
+                      <span class="btn-icon">👁</span>
+                      <span class="btn-text">View</span>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr role="row" class="student-row low-performer">
+                  <td class="student-info">
+                    <div class="student-details">
+                      <div class="status-indicator inactive"></div>
+                      <div class="student-name">
+                        <h4>Casey Brown</h4>
+                        <span class="student-id">ID: CS2023004</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="student-email">cbrown@college.edu</td>
+                  <td class="completion-rate">
+                    <div class="progress-container">
+                      <div class="progress-bar low">
+                        <div class="progress-fill" style="width: 45%"></div>
+                      </div>
+                      <span class="progress-text">45%</span>
+                    </div>
+                  </td>
+                  <td class="recent-activity">
+                    <div class="activity-info">
+                      <span class="activity-text">Missed challenge</span>
+                      <time class="activity-time" datetime="2025-07-01">3 days ago</time>
+                    </div>
+                  </td>
+                  <td class="student-actions">
+                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
+                      <span class="btn-icon">👁</span>
+                      <span class="btn-text">View</span>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr role="row" class="student-row high-performer">
+                  <td class="student-info">
+                    <div class="student-details">
+                      <div class="status-indicator active"></div>
+                      <div class="student-name">
+                        <h4>Riley Garcia</h4>
+                        <span class="student-id">ID: CS2023005</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="student-email">rgarcia@college.edu</td>
+                  <td class="completion-rate">
+                    <div class="progress-container">
+                      <div class="progress-bar high">
+                        <div class="progress-fill" style="width: 85%"></div>
+                      </div>
+                      <span class="progress-text">85%</span>
+                    </div>
+                  </td>
+                  <td class="recent-activity">
+                    <div class="activity-info">
+                      <span class="activity-text">Completed "Graph Algorithms"</span>
+                      <time class="activity-time" datetime="2025-07-04">Today</time>
+                    </div>
+                  </td>
+                  <td class="student-actions">
+                    <a href="fac student overview.html" class="action-btn view-btn" title="View Details">
+                      <span class="btn-icon">👁</span>
+                      <span class="btn-text">View</span>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

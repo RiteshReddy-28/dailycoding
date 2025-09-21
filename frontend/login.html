@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Coding - Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="logo-title">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg/250px-Official_Logo_of_CHRIST%28Deemed_to_be_University%29%2C_bangalore.jpg" 
+             alt="CHRIST University Logo" class="logo">
+        <h1>Daily Coding</h1>
+      </div>
+      <p class="subheading">College Edition</p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="role-section">
+          <fieldset>
+            <legend class="role-label">Select your role:</legend>
+            <div class="role-options">
+              <label class="role-option">
+                <input type="radio" name="role" value="student" checked>
+                <span class="role-text">Student</span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="role" value="faculty">
+                <span class="role-text">Faculty</span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="role" value="admin">
+                <span class="role-text">Admin</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="login-btn">
+          <span class="btn-text">Login</span>
+        </button>
+
+        <div class="login-links">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const role = document.querySelector('input[name="role"]:checked').value;
+
+      try {
+        const response = await fetch("http://localhost:3000/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password, role })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert("✅ Login successful");
+
+          // store token for session
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("role", role);
+
+          // redirect based on role
+          if (role === "student") {
+            window.location.href = "student1.html";
+          } else if (role === "faculty") {
+            window.location.href = "faculty index.html";
+          } else if (role === "admin") {
+            window.location.href = "admin-dashboard.html";
+          }
+        } else {
+          alert("❌ " + (data.message || "Login failed"));
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("⚠️ Server error, please try again later.");
+      }
+    });
+  </script>
+</body>
+</html>
